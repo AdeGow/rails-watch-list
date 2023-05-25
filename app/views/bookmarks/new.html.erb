@@ -1,0 +1,9 @@
+<div class="container">
+  <h2>New bookmark</h2>
+  <%= simple_form_for @bookmark do |f| %>
+    <%= f.label :insert_your_comment %>
+    <%= f.text_field :comment %>
+    <%= f.association :movie, as: :check_boxes %>
+    <%= f.submit "Create new list", class: "btn btn-primary"%>
+  <% end %>
+</div>
