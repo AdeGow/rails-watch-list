@@ -2,8 +2,11 @@
 
 <ul>
   <% @lists.each do |list| %>
-    <li><%= link_to list.name, list_show_path(list) %></li>
+    <li><%= link_to list.name, list_path(list) %></li>
+    <%= link_to list_path(list), data: {turbo_method: :delete, turbo_confirm: "Are you sure?"} do %>
+      <i class="fa-solid fa-trash-can"></i>
+    <% end %>
   <% end %>
 </ul>
 
-<p><%= link_to "Create a new list", lists_new_path %></p>
+<p><%= link_to "Create a new list", new_list_path %></p>

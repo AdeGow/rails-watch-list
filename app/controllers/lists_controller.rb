@@ -9,13 +9,18 @@ class ListsController < ApplicationController
 
   def create
     @list = List.new(list_params)
-    # @list.movies = Movie.new(movie_params)
     @list.save!
-    redirect_to list_show_path(@list)
+    redirect_to list_path(@list)
   end
 
   def show
     @list = List.find(params[:id])
+  end
+
+  def destroy
+    @list = List.find(params[:id])
+    @list.delete
+    redirect_to list_path(@list), status: :see_other
   end
 
   private
